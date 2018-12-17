@@ -1,13 +1,13 @@
-﻿// Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license. See LICENSE in the project root for license information.
+﻿using Microsoft.Graph;
+using System.Net.Http.Headers;
+using System.Threading.Tasks;
+
 using graph_tutorial.TokenStorage;
-using Microsoft.Graph;
 using Microsoft.Identity.Client;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
-using System.Net.Http.Headers;
 using System.Security.Claims;
-using System.Threading.Tasks;
 using System.Web;
 
 namespace graph_tutorial.Helpers
@@ -19,19 +19,6 @@ namespace graph_tutorial.Helpers
         private static string appSecret = ConfigurationManager.AppSettings["ida:AppSecret"];
         private static string redirectUri = ConfigurationManager.AppSettings["ida:RedirectUri"];
         private static string graphScopes = ConfigurationManager.AppSettings["ida:AppScopes"];
-
-        public static async Task<User> GetUserDetailsAsync(string accessToken)
-        {
-            var graphClient = new GraphServiceClient(
-                new DelegateAuthenticationProvider(
-                    async (requestMessage) =>
-                    {
-                        requestMessage.Headers.Authorization =
-                            new AuthenticationHeaderValue("Bearer", accessToken);
-                    }));
-
-            return await graphClient.Me.Request().GetAsync();
-        }
 
         public static async Task<IEnumerable<Event>> GetEventsAsync()
         {
@@ -70,6 +57,19 @@ namespace graph_tutorial.Helpers
                         requestMessage.Headers.Authorization =
                             new AuthenticationHeaderValue("Bearer", result.AccessToken);
                     }));
+        }
+
+        public static async Task<User> GetUserDetailsAsync(string accessToken)
+        {
+            var graphClient = new GraphServiceClient(
+                new DelegateAuthenticationProvider(
+                    async (requestMessage) =>
+                    {
+                        requestMessage.Headers.Authorization =
+                            new AuthenticationHeaderValue("Bearer", accessToken);
+                    }));
+
+            return await graphClient.Me.Request().GetAsync();
         }
     }
 }

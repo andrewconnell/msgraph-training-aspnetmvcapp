@@ -1,7 +1,4 @@
-﻿// Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license. See LICENSE in the project root for license information.
-using graph_tutorial.Helpers;
-using graph_tutorial.TokenStorage;
-using Microsoft.Identity.Client;
+﻿using Microsoft.Identity.Client;
 using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.Owin.Security;
@@ -10,9 +7,11 @@ using Microsoft.Owin.Security.Notifications;
 using Microsoft.Owin.Security.OpenIdConnect;
 using Owin;
 using System.Configuration;
-using System.IdentityModel.Claims;
 using System.Threading.Tasks;
 using System.Web;
+using graph_tutorial.Helpers;
+using graph_tutorial.TokenStorage;
+using System.IdentityModel.Claims;
 
 namespace graph_tutorial
 {
@@ -43,7 +42,7 @@ namespace graph_tutorial
                       // For demo purposes only, see below
                       ValidateIssuer = false
 
-                      // In a real multitenant app, you would add logic to determine whether the
+                      // In a real multi-tenant app, you would add logic to determine whether the
                       // issuer was from an authorized tenant
                       //ValidateIssuer = true,
                       //IssuerValidator = (issuer, token, tvp) =>
@@ -103,7 +102,7 @@ namespace graph_tutorial
                 {
                     DisplayName = userDetails.DisplayName,
                     Email = string.IsNullOrEmpty(userDetails.Mail) ?
-                    userDetails.UserPrincipalName : userDetails.Mail,
+                        userDetails.UserPrincipalName : userDetails.Mail,
                     Avatar = string.Empty
                 };
 

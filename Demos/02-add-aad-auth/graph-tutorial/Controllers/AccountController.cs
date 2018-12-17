@@ -1,11 +1,10 @@
-﻿// Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license. See LICENSE in the project root for license information.
-using graph_tutorial.TokenStorage;
-using Microsoft.Owin.Security;
+﻿using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OpenIdConnect;
 using System.Security.Claims;
 using System.Web;
 using System.Web.Mvc;
+using graph_tutorial.TokenStorage;
 
 namespace graph_tutorial.Controllers
 {

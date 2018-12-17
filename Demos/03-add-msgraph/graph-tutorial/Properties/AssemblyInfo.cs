@@ -1,5 +1,4 @@
-﻿// Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license. See LICENSE in the project root for license information.
-using System.Reflection;
+﻿using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
@@ -21,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("be2725e7-0f9a-42d5-abff-4325c0373ef1")]
+[assembly: Guid("c637c071-d3c7-49b5-ac68-b46b826ee8cb")]
 
 // Version information for an assembly consists of the following four values:
 //
